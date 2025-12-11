@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs</title>
+   
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+        body{
+            background-color: #f7d9f0;
+            font-family: 'Gill Sans', 'Gill Sans MT';
+        }
+
+        nav.navbar {
+            background-color: #c989d4;
+        }
+
+        nav a {
+            color: white !important;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container{
+            width: 800px;
+            margin-top: 40px;
+        }
+
+        button{
+            width: 800px;
+            padding: 10px;
+            background-color: #c27acb;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        }
+
+        button:hover{
+            background-color: #a45bb0;
+        }
+
+        p{
+            font-size: 17px;
+            text-align: left;
+            color: #4a2a57;
+        }
+
+        select{
+            width: 800px;
+            height: 35px;
+            font-size: 14px;
+            border: 2px solid #b06cc9;
+            border-radius: 6px;
+        }
+
+        #popupContainer {
+            background-color: #f3d1ff;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-bold" href="index.html">Polytechnic University of The Philippines</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="gwa.html">Grade Calculator</a></li>
+        <li class="nav-item"><a class="nav-link" href="clubs.html">Clubs</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<center>
+<div class="container">
+<h1 style="color:#5a2a6e;">School Club Information</h1>
+
+<p>Select a club:</p>
+
+<select id="myDropdown">
+  <option value="">Select an option</option>
+  <option value="science">Science club</option>
+  <option value="math">Math club</option>
+  <option value="ss">Social Studies club</option>
+  <option value="sports">Sports club</option>
+  <option value="robotics">Robotics club</option>
+</select>
+
+<br><br>
+
+<button onclick="showParagraphs()">Show club information</button>
+
+<div id="popupContainer" 
+     style="
+       display: none;
+       margin-top: 20px;
+       padding: 15px;
+       border: 1px solid #5a2a6e;
+       border-radius: 5px;
+       width: 800px;
+     ">
+  <div id="output"></div>
+</div>
+
+</div>
+</center>
+
+<script>
+function showParagraphs() {
+  const value = document.getElementById("myDropdown").value;
+  const container = document.getElementById("popupContainer");
+  const out = document.getElementById("output");
+
+  container.style.display = "block";
+
+  if (value === "") {
+    out.innerHTML = "<p>Please select an option first.</p>";
+  }
+  else if (value === "science") {
+    out.innerHTML = `
+      <p><strong>Science Club:</strong></p>
+      <p>Description: Explore the wonders of the world and beyond!</p>
+      <p>Meeting Time: 3:00-4:00 pm on Wednesday</p>
+      <p>Location: Lumina Lab</p>
+      <p>Adviser: Mr. Calixihan</p>
+      <p>Category: Academic</p>
+    `;
+  }
+  else if (value === "math") {
+    out.innerHTML = `
+      <p><strong>Math Guild:</strong></p>
+      <p>Description: Unravel the magic in numbers~</p>
+      <p>Meeting Time: 11:11-2:00 pm on Thursday</p>
+      <p>Location: Prismorium</p>
+      <p>Adviser: Mr. Alcachupas</p>
+      <p>Category: Academic</p>
+    `;
+  }
+  else if (value === "ss") {
+    out.innerHTML = `
+      <p><strong>Social Studies Club:</strong></p>
+      <p>Description: Discover stories of the past and present.</p>
+      <p>Meeting Time: 3:00-4:00 pm on Tuesday</p>
+      <p>Location: Elysian Gallery</p>
+      <p>Adviser: Mr. Hablado</p>
+      <p>Category: Academic</p>
+    `;
+  }
+  else if (value === "sports") {
+    out.innerHTML = `
+      <p><strong>Sports Club:</strong></p>
+      <p>Description: Move, compete, and shine like a Flamechaser!</p>
+      <p>Meeting Time: 3:00-4:00 pm on Monday</p>
+      <p>Location: Starlight Field</p>
+      <p>Adviser: Mr. Tare</p>
+      <p>Category: Non-Academic</p>
+    `;
+  }
+  else if (value === "robotics") {
+    out.innerHTML = `
+      <p><strong>Robotics Club:</strong></p>
+      <p>Description: Bring machines to life!</p>
+      <p>Meeting Time: 3:00-4:00 pm on Friday</p>
+      <p>Location: Elytronics Lab</p>
+      <p>Adviser: Ms. Carabot</p>
+      <p>Category: Non-Academic</p>
+    `;
+  }
+}
+</script>
+
+</body>
+</html>

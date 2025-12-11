@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Grade Calculator</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+  <style>
+    body {
+      background-color: #f7d9f0;
+      font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+      margin: 0;
+    }
+
+    nav.navbar {
+      background-color: #c989d4;
+    }
+
+    nav a {
+      color: white !important;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .page-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 40px 15px;
+    }
+
+    .grade-card {
+      background-color: #f3d1ff;
+      border: 2px solid #c27acb;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .grade-card h1 {
+      color: #7a3e8a;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #5a2f6b;
+      margin-bottom: 5px;
+    }
+
+    input {
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d88ca4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #b96fbd;
+    }
+
+    #grades_container {
+      background-color: #fbe8ff;
+      border: 2px solid #c27acb;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    #name, #output {
+      color: #5a2f6b;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-bold" href="index.html">Polytechnic University of The Philippines</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="gwa.html">Grade Calculator</a></li>
+        <li class="nav-item"><a class="nav-link" href="clubs.html">Clubs</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+  <div class="grade-card">
+    <h1>Student Grade Calculator</h1>
+
+    <label for="first">First Name:</label>
+    <input type="text" class="form-control" id="first" placeholder="Enter your first name">
+
+    <label for="last">Last Name:</label>
+    <input type="text" class="form-control" id="last" placeholder="Enter your last name">
+
+    <h4 style="color:#5a2f6b; margin-top: 20px;">Grades per subject</h4>
+
+    <label for="english">English:</label>
+    <input type="number" class="form-control" id="english" placeholder="Enter your grade">
+
+    <label for="math">Math:</label>
+    <input type="number" class="form-control" id="math" placeholder="Enter your grade">
+
+    <label for="science">Science:</label>
+    <input type="number" class="form-control" id="science" placeholder="Enter your grade">
+
+    <label for="ss">SS:</label>
+    <input type="number" class="form-control" id="ss" placeholder="Enter your grade">
+
+    <label for="filipino">Filipino:</label>
+    <input type="number" class="form-control" id="filipino" placeholder="Enter your grade">
+
+    <label for="ict">ICT:</label>
+    <input type="number" class="form-control" id="ict" placeholder="Enter your grade">
+
+    <!-- ✅ This will now work -->
+    <button py-click="compute_average">Calculate GWA</button>
+
+    <div id="grades_container">
+      <p>English: <span id="english_output"></span></p>
+      <p>Math: <span id="math_output"></span></p>
+      <p>Science: <span id="science_output"></span></p>
+      <p>SS: <span id="ss_output"></span></p>
+      <p>Filipino: <span id="filipino_output"></span></p>
+      <p>ICT: <span id="ict_output"></span></p>
+    </div>
+
+    <div id="name"></div>
+    <div id="output"></div>
+
+  </div>
+</div>
+
+<py-script src="main.py"></py-script>
+
+</body>
+</html>
